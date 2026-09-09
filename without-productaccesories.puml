@@ -1,0 +1,56 @@
+@startuml
+title Odoo 19 Cafe eCommerce Workflow - Without Product Accessories Module
+
+start
+
+:Customer visits Cafe eCommerce website;
+
+:Browse products;
+
+:Select a product;
+
+:View product details;
+
+if (Need complementary product?) then (Yes)
+    :Customer manually searches\nfor another product;
+    :Browse product list;
+    :Select complementary product;
+else (No)
+endif
+
+:Add product to cart;
+
+:Review cart;
+
+if (Continue shopping?) then (Yes)
+    :Browse more products;
+    :Select product;
+    :Add product to cart;
+else (No)
+endif
+
+:Proceed to checkout;
+
+:Enter customer details;
+
+:Select delivery/payment method;
+
+:Confirm order;
+
+:Odoo creates Sales Order;
+
+:Delivery Order created;
+
+:Stock reservation\naccording to Odoo settings;
+
+:Process delivery;
+
+:Validate delivery;
+
+:Stock quantity decreases;
+
+:Order completed;
+
+stop
+
+@enduml

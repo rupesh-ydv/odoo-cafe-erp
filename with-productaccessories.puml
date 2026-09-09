@@ -1,0 +1,74 @@
+@startuml
+title Odoo 19 Cafe eCommerce Workflow - With Product Accessories Module
+
+start
+
+:Customer visits Cafe eCommerce website;
+
+:Browse products;
+
+:Select main product;
+
+:View product details;
+
+:Product Accessories Module\nloads configured accessories;
+
+:Validate accessories;
+
+if (Accessory valid?) then (Yes)
+
+    :Check accessory is active;
+
+    :Check product is active;
+
+    :Check website is published;
+
+    :Check product can be sold;
+
+    :Display valid accessories\nwith name, image and price;
+
+    :Customer selects accessories;
+
+    if (Required accessory?) then (Yes)
+        :Required accessory remains selected;
+    else (No)
+        :Customer may select/deselect;
+    endif
+
+    :Add main product\nand selected accessories to cart;
+
+else (No)
+
+    :Hide accessory section;
+
+    :Add main product to cart;
+
+endif
+
+:Review cart;
+
+:Proceed to checkout;
+
+:Enter customer details;
+
+:Select delivery/payment method;
+
+:Confirm order;
+
+:Odoo creates Sales Order\nwith main product + accessories;
+
+:Delivery Order created;
+
+:Stock reservation\naccording to Odoo settings;
+
+:Process delivery;
+
+:Validate delivery;
+
+:Stock quantity decreases;
+
+:Order completed;
+
+stop
+
+@enduml

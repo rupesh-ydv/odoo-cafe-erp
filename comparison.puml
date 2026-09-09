@@ -1,0 +1,50 @@
+@startuml
+title Product Accessories - Before and After
+
+partition "WITHOUT MODULE" {
+
+    start
+
+    :Customer selects product;
+
+    :View product page;
+
+    :No accessory recommendations;
+
+    :Customer searches manually;
+
+    :Find complementary product;
+
+    :Add products separately;
+
+    :Proceed to checkout;
+
+    :Confirm order;
+
+    stop
+}
+
+partition "WITH PRODUCT ACCESSORIES MODULE" {
+
+    start
+
+    :Customer selects product;
+
+    :View product page;
+
+    :Configured accessories displayed;
+
+    :System validates accessories;
+
+    :Customer selects accessories;
+
+    :Main product + accessories\nadded to cart;
+
+    :Proceed to checkout;
+
+    :Confirm order;
+
+    stop
+}
+
+@enduml
