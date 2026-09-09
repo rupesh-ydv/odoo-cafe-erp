@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_product_accessory_line_list" model="ir.ui.view">
+        <field name="name">product.accessory.line.list</field>
+        <field name="model">product.accessory.line</field>
+        <field name="arch" type="xml">
+            <list string="Product Accessories" editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="product_tmpl_id"/>
+                <field name="accessory_product_id"/>
+                <field name="note"/>
+                <field name="required"/>
+                <field name="max_qty"/>
+                <field name="website_published"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_product_accessory_line_form" model="ir.ui.view">
+        <field name="name">product.accessory.line.form</field>
+        <field name="model">product.accessory.line</field>
+        <field name="arch" type="xml">
+            <form string="Product Accessory">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="product_tmpl_id"/>
+                            <field name="accessory_product_id"/>
+                            <field name="sequence"/>
+                        </group>
+                        <group>
+                            <field name="active"/>
+                            <field name="website_published"/>
+                            <field name="required"/>
+                            <field name="max_qty"/>
+                            <field name="note"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_product_accessory_lines" model="ir.actions.act_window">
+        <field name="name">Product Accessories</field>
+        <field name="res_model">product.accessory.line</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem
+        id="menu_product_accessories"
+        name="Product Accessories"
+        parent="sale.product_menu_catalog"
+        action="action_product_accessory_lines"
+        sequence="35"
+        groups="sales_team.group_sale_manager"
+    />
+</odoo>
